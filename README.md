@@ -38,7 +38,26 @@
                           save file path : 저장할 파일 경로. 옵션 안주면 ./CRP_Data.xlsx 이름으로 저장
   ```
 
-- 파싱 결과물은 .xlsx 파일로 저장됩니다.
+- 파싱 내용
+
+  - Reward
+  - Severity
+  - Vuln
+  - Vuln_Vector
+  - Who
+  - 날짜별 데이터..
+
+- 파싱 대상
+
+  - 기본적으로 `Stable Channel Update for Desktop`에 대한 내용만 파싱합니다. <br>만약 변경하고 싶다면  `self.parse_target`의 값을 바꿔주면 됩니다.
+
+    ```python
+    class CRP():
+        def __init__(self, ...): 
+            ...
+    		self.parse_target = "Stable Channel Update for Desktop"
+            ...
+    ```
 
 ## 업데이트
 

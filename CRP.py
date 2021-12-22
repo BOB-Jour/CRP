@@ -44,6 +44,8 @@ class CRP():
         if(max_result != None):
             self.get_url += '&max-results={max_result}'.format(max_result=max_result)
 
+        self.parse_target = "Stable Channel Update for Desktop" # default # 다른 내용을 파싱하고 싶다면 해당 문자열을 변경하면 됩니다.
+
         # 종합 + 빈도
         self.all = [] # 종합 데이터 # list
         self.reward_count = {'All':0} # 금액 빈도 # dict + list 
@@ -75,7 +77,7 @@ class CRP():
             div_post = soup.select("div.post")
             for i in div_post:
                 text_data = [v for v in i.text.split('\n') if v]
-                if (text_data[0] != "Stable Channel Update for Desktop"):
+                if (text_data[0] != self.parse_target): 
                     continue
                 print("title   :",text_data[0])
                 print("date    :",text_data[1])
